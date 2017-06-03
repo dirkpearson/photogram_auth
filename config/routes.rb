@@ -37,14 +37,19 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Photo resource:
-  # CREATE
-  get "/photos/new", :controller => "photos", :action => "new"
-  post "/create_photo", :controller => "photos", :action => "create"
 
   # READ
   root "photos#index"
-  # get "/photos", :controller => "photos", :action => "index"
+
+  get "/photos", :controller => "photos", :action => "index"
+  get "/photos/new", :controller => "photos", :action => "new"
   get "/photos/:id", :controller => "photos", :action => "show"
+
+  # CREATE
+
+  post "/create_photo", :controller => "photos", :action => "create"
+
+
 
   # UPDATE
   get "/photos/:id/edit", :controller => "photos", :action => "edit"
@@ -58,6 +63,11 @@ Rails.application.routes.draw do
 
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
-  
+  get "/users/:id/edit", :controller => "users", :action => "edit"
+
+  get "/my_likes", :controller => "my_likes", :action => "show"
+  get "/my_likes/:id", :controller => "my_likes", :action => "show"
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
